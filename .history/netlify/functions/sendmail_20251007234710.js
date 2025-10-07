@@ -20,7 +20,7 @@ exports.handler = async (event, context) => {
       secure: true,
       auth: {
         user: "info@ossence.ee",
-        pass: "p9U27UKrEr4q",
+        pass: "p9U27UKrEr4q", // лучше потом вынести в переменные окружения
       },
     });
 
