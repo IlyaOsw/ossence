@@ -15,7 +15,8 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
       body: JSON.stringify(formData),
     });
 
-    const data = await res.json();
+    // пробуем корректно обработать пустой ответ
+    let data;
     try {
       data = await res.json();
     } catch {

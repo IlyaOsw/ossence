@@ -30,4 +30,3 @@ exports.handler = async (event, context) => {
     };
   }
 };
-console.log("BODY:", event.body);
