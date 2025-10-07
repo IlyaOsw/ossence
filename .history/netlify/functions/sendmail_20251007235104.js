@@ -24,7 +24,7 @@ exports.handler = async (event, context) => {
       secure: true,
       auth: {
         user: "info@ossence.ee", // твой Zoho адрес
-        pass: "p9U27UKrEr4q",
+        pass: "ПАРОЛЬ_ПРИЛОЖЕНИЯ", // пароль приложения из Zoho!
       },
     });
 
