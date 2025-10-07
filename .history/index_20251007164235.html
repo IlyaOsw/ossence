@@ -1,0 +1,682 @@
+﻿<!doctype html>
+<html lang="et">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="assets/mini-icon.png" />
+  <title>Ossence | Veebilahendused sinu auks</title>
+  <meta name="description"
+    content="Loome kaasaegseid veebilehti ja digiturunduse lahendusi: disain, arendus, SEO ja strateegia." />
+  <!-- SEO: Open Graph + Twitter Card for social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Ossence" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:title" content="Ossence | Veebilahendused sinu auks" />
+  <meta property="og:description" content="Pakume nutikaid digilahendusi: veebilehed, brandid, SEO ja turundus." />
+  <meta property="og:image" content="assets/about-block.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ossence | Veebilahendused sinu auks" />
+  <meta name="twitter:description" content="Pakume nutikaid digilahendusi: veebilehed, brandid, SEO ja turundus." />
+  <meta name="twitter:image" content="assets/about-block.jpg" />
+  <link rel="image_src" href="assets/about-block.jpg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#home">Liigu pohisisu juurde</a>
+
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">
+          <!-- Simple inline SVG logo -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#9c27ff" />
+                <stop offset="100%" stop-color="#4a00e0" />
+              </linearGradient>
+            </defs>
+            <rect x="2" y="3" width="20" height="14" rx="2" stroke="url(#g1)" stroke-width="2" />
+            <path d="M7 20h10" stroke="url(#g1)" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </span>
+
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Ava menyy" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="nav">
+        <button type="button" id="navClose" class="nav-close" aria-label="Sulge menyy" hidden>×</button>
+        <a href="#home">Avaleht</a>
+        <a href="#about">Meist</a>
+        <a href="#services">Teenused</a>
+        <a href="#faq">KKK</a>
+        <a href="#contact" class="btn btn-small">Vota uhendust</a>
+      </nav>
+      <div class="lang-switch" id="langSwitch" aria-label="Language switcher">
+        <button type="button" data-lang="ru" class="active">RU</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="et">ET</button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay" hidden></div>
+  <!-- Mobile full-screen menu (independent from header nav) -->
+  <div id="mobileMenu" class="mobile-menu" hidden>
+    <div class="mm-overlay" id="mmOverlay" aria-hidden="true"></div>
+    <div class="mm-panel" id="mmPanel" role="dialog" aria-label="Menyy">
+      <button type="button" class="mm-close" id="mmClose" aria-label="Sulge menyy">×</button>
+      <h3 class="mm-title">Меню</h3>
+      <nav class="mm-nav" id="mmNav"></nav>
+      <div class="mm-lang" id="mmLang"></div>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO / Главная -->
+    <section id="home" class="section hero">
+      <div class="container hero-grid">
+        <div class="hero-text reveal">
+          <h1>Kaasaegsed veebilehed <br>sinu auks <br>ja brandi kasvuks</h1>
+          <h1>Disain, arendus ja kaivitus</h1>
+          <p>
+            Loome kiired ja selged veebilehed, mis aitavad sul uusi kliente voitada ning kasvatada muugi.
+          </p>
+          <div class="cta">
+            <a href="#contact" class="btn btn-gradient">Arutame projekti</a>
+            <a href="#services" class="btn btn-ghost">Vaata teenuseid</a>
+          </div>
+          <ul class="badges">
+            <li>Taisteenus</li>
+            <li>SEO fookusega</li>
+            <li>Pidev tugi</li>
+          </ul>
+
+          <div class="contact-actions">
+            <a class="btn btn-gradient" href="mailto:info@ossence.ee">Saada kiri</a>
+            <a class="btn btn-ghost" href="tel:+37253494177">Helista meile</a>
+          </div>
+          <ul class="hours">
+            <li>E-R: 10:00-18:00</li>
+            <li>L-P: kokkuleppel</li>
+          </ul>
+        </div>
+        <div class="hero-art reveal" aria-hidden="true">
+          <!-- Thematic inline SVG illustration -->
+          <svg class="illustration" viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" role="img">
+            <defs>
+              <linearGradient id="gradA" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#8e2de2" />
+                <stop offset="100%" stop-color="#4a00e0" />
+              </linearGradient>
+              <linearGradient id="gradB" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#b388ff" />
+                <stop offset="100%" stop-color="#7c4dff" />
+              </linearGradient>
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="8" result="b" />
+                <feMerge>
+                  <feMergeNode in="b" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <rect x="30" y="60" width="320" height="200" rx="16" fill="none" stroke="url(#gradA)" stroke-width="4" />
+            <rect x="50" y="80" width="280" height="160" rx="10" fill="#160b2e" stroke="#2a1457" />
+            <g>
+              <rect x="380" y="110" width="90" height="70" rx="12" fill="#1e0f3f" stroke="#402080" />
+              <circle cx="425" cy="145" r="24" fill="url(#gradB)" filter="url(#glow)" />
+            </g>
+            <g fill="#2d1658">
+              <rect x="70" y="105" width="120" height="10" rx="5" />
+              <rect x="70" y="125" width="160" height="10" rx="5" />
+              <rect x="70" y="145" width="140" height="10" rx="5" />
+              <rect x="70" y="175" width="180" height="10" rx="5" />
+              <rect x="70" y="195" width="110" height="10" rx="5" />
+            </g>
+            <g opacity="0.9">
+              <circle cx="460" cy="70" r="6" fill="#7c4dff" />
+              <circle cx="420" cy="40" r="4" fill="#9c27ff" />
+              <circle cx="500" cy="130" r="5" fill="#b388ff" />
+              <circle cx="360" cy="40" r="3" fill="#7c4dff" />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- О нас -->
+    <section id="about" class="section">
+      <div class="container grid-2">
+        <div class="reveal">
+          <h2>Meist</h2>
+          <p>
+            Loome terviklikke veebiprojekte alates ideest kuni lansseerimiseni.
+            Keskendume kaasaegsele disainile, kasutajakogemusele ja kiirele laadimisele.
+
+            Aitame sul brandi kasvatada turunduse, automatiseerimise ja SEO kaudu.
+
+            Meie jaoks on olulised selge suhtlus, paindlik protsess ja pohjalikud tulemused.
+          </p>
+          <ul class="checklist">
+            <li>UX ja struktuuri planeerimine</li>
+            <li>UI disain ja prototuubid</li>
+            <li>Arendus ning integratsioonid</li>
+            <li>Turundus, SEO ja automatiseerimine</li>
+          </ul>
+        </div>
+        <div class="about-card reveal">
+          <div class="stats">
+            <div><strong>5+ aastat</strong><span>kogemust</span></div>
+            <div><strong>60+ projekti</strong><span>eri sektorites</span></div>
+            <div><strong>~95%</strong><span>partnerite rahulolu</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Процесс -->
+    <!-- Divider between About and Process -->
+    <div class="section-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" role="img"
+        aria-label="">
+        <defs>
+          <linearGradient id="dividerFill" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#24103f" />
+            <stop offset="45%" stop-color="#170a33" />
+            <stop offset="100%" stop-color="#0b0321" />
+          </linearGradient>
+          <linearGradient id="dividerAccent" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#c9a7ff" />
+            <stop offset="65%" stop-color="#8545ff" />
+            <stop offset="100%" stop-color="#4a00e0" />
+          </linearGradient>
+          <radialGradient id="dividerGlow" cx="0.25" cy="0.15" r="0.9">
+            <stop offset="0%" stop-color="#a977ff" stop-opacity="0.55" />
+            <stop offset="60%" stop-color="#6930c3" stop-opacity="0.18" />
+            <stop offset="100%" stop-color="#260f48" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+        <path d="M0 125 C140 70 300 28 480 88 C720 165 930 20 1150 62 C1310 90 1385 120 1440 96 L1440 160 L0 160 Z"
+          fill="url(#dividerFill)" fill-opacity="0.18" />
+        <path d="M0 112 C160 58 340 48 520 108 C750 182 980 42 1180 68 C1325 86 1400 118 1440 104" fill="none"
+          stroke="url(#dividerAccent)" stroke-width="4" stroke-linecap="round" stroke-opacity="0.35" />
+        <path d="M0 125 C140 70 300 28 480 88 C720 165 930 20 1150 62 C1310 90 1385 120 1440 96 L1440 160 L0 160 Z"
+          fill="url(#dividerGlow)" fill-opacity="0.2" />
+      </svg>
+    </div>
+    <section id="process" class="section">
+      <div class="container">
+        <h2 class="center reveal">От заявки до готового сайта</h2>
+        <p class="lead center reveal">
+          Процесс сотрудничества построен так, чтобы вам было максимально удобно на каждом этапе. Прозрачность,
+          понятность и простота — всё, чтобы вы точно знали, чего ожидать. Всего три шага отделяют вас от готового
+          сайта.
+        </p>
+        <div class="steps">
+          <article class="step reveal">
+            <div class="step-icon" aria-hidden="true">
+              <!-- Handshake / chat icon -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <path d="M2 12h3l3 3 3-3" />
+                <path d="M22 12h-3l-3-3-3 3" />
+                <path d="M8 15l2 2a3 3 0 0 0 4 0l2-2" />
+              </svg>
+            </div>
+            <div class="step-num">1</div>
+            <h3>Первый контакт</h3>
+            <p>Свяжитесь удобным способом — обсудим ваши цели и пожелания.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-icon" aria-hidden="true">
+              <!-- Layout / brush icon -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <rect x="3" y="4" width="18" height="6" rx="1.5" />
+                <rect x="3" y="12" width="10" height="8" rx="1.5" />
+                <path d="M18 12l3 3-6 5-3-3 6-5Z" />
+              </svg>
+            </div>
+            <div class="step-num">2</div>
+            <h3>Обсуждаем детали</h3>
+            <p>Согласуем структуру, дизайн и функциональность сайта.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-icon" aria-hidden="true">
+              <!-- Rocket / check icon -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <path d="M14 3l7 7-5 1-3 3-1-5 2-6Z" />
+                <path d="M5 19l4-4" />
+                <path d="M4 14l6 6" />
+              </svg>
+            </div>
+            <div class="step-num">3</div>
+            <h3>Получаете готовый сайт</h3>
+            <p>Полный доступ для размещения у себя или сопровождение и управление от вашего имени.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-width parallax image banner -->
+    <div class="parallax-banner" style="--parallax-image: url('assets/image.jpg');" aria-hidden="true"></div>
+
+    <!-- Услуги -->
+    <section id="services" class="section">
+      <div class="container">
+        <h2 class="center reveal">Услуги</h2>
+        <h2 class="center reveal">Цены и услуги</h2>
+        <p class="lead center reveal">Ниже вы найдёте актуальные цены и список услуг — от простых лендингов до
+          многостраничных
+          сайтов под ключ.</p>
+
+        <div class="pricing-grid">
+          <article class="price-card reveal">
+            <div class="price">100€</div>
+            <h3>Одностраничный лендинг</h3>
+            <p class="desc">Идеальное решение для презентации продукта или услуги. Быстрый старт, современный дизайн и
+              чёткая структура.</p>
+            <ul class="features">
+              <li>Индивидуальный дизайн с анимацией</li>
+              <li>Адаптивность под все устройства</li>
+              <li>Создание 1 главной страницы</li>
+              <li>Установка на хостинг + подключение домена</li>
+              <li>Базовая SEO-оптимизация</li>
+              <li>Гарантия на сайт 1 год</li>
+              <li>Бесплатные правки первый месяц</li>
+              <li>Срок выполнения — от 5 дней</li>
+            </ul>
+            <a href="#contact" class="btn btn-gradient">Arutame projekti</a>
+          </article>
+
+          <article class="price-card reveal">
+            <div class="price">150€</div>
+            <h3>Многостраничный сайт</h3>
+            <p class="desc">Для компаний и экспертов, которым нужно структурированное представление услуг, портфолио и
+              контактов.</p>
+            <ul class="features">
+              <li>Индивидуальный дизайн с анимацией</li>
+              <li>Адаптивность под все устройства</li>
+              <li>Создание от 3 до 5 страниц</li>
+              <li>Установка на хостинг + подключение домена</li>
+              <li>Базовая SEO-оптимизация</li>
+              <li>Гарантия на сайт 1 год</li>
+              <li>Бесплатные правки первый месяц</li>
+              <li>Срок выполнения — от 10 дней</li>
+            </ul>
+            <a href="#contact" class="btn btn-gradient">Arutame projekti</a>
+          </article>
+        </div>
+
+        <h3 class="center subheading reveal">Дополнительные услуги</h3>
+        <p class="lead center reveal">Продолжим сопровождение вашего сайта после запуска — выберите подходящий формат.
+        </p>
+
+        <div class="pricing-grid small">
+          <article class="price-card reveal">
+            <div class="price">30 €/месяц</div>
+            <h4>Пакет “Полная поддержка”</h4>
+            <p class="desc">Подходит тем, кто хочет получать стабильную и быструю поддержку сайта без ограничений</p>
+            <ul class="features">
+              <li>Неограниченное количество правок</li>
+              <li>Поддержка 24/7</li>
+              <li>Внесение изменений по запросу</li>
+              <li>Консультации и техническое сопровождение</li>
+            </ul>
+            <a href="#contact" class="btn btn-ghost">связаться сейчас</a>
+          </article>
+
+          <article class="price-card reveal">
+            <div class="price">Оплата по запросу</div>
+            <h4>Пакет “Поддержка по запросу”</h4>
+            <p class="desc">Оптимальный вариант, если сайт требует изменений время от времени.</p>
+            <ul class="features">
+              <li>Правки и обновления по необходимости</li>
+              <li>Стоимость зависит от задачи</li>
+              <li>Быстрая обратная связь</li>
+              <li>Предварительная оценка до начала работ</li>
+            </ul>
+            <a href="#contact" class="btn btn-ghost">связаться сейчас</a>
+          </article>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6Z" stroke="currentColor"
+                  stroke-width="2" />
+                <path d="M8 20h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Лендинг</h3>
+            <p>Продуманный одностраничный сайт для запуска рекламы и трафика.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="2" />
+                <path d="M4 10h16" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <h3>Корпоративный сайт</h3>
+            <p>Страницы, блог, вакансии и интеграции — всё по бренду.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="9" cy="21" r="2" stroke="currentColor" stroke-width="2" />
+                <circle cx="19" cy="21" r="2" stroke="currentColor" stroke-width="2" />
+                <path d="M2 3h3l3 12h11l2-8H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Интернет‑магазин</h3>
+            <p>Каталог, корзина, оплата и CRM. Фокус на конверсию.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12h6l3-9 3 18 3-9h3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Оптимизация</h3>
+            <p>Ускорение, SEO, метрики, технический аудит и улучшения.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Поддержка</h3>
+            <p>Регулярные обновления, мелкие правки, контент и безопасность.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2" />
+                <path d="M4 9h16M9 4v16" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <h3>UI/UX</h3>
+            <p>Прототипирование и дизайн‑система для масштабируемых интерфейсов.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ЧАВО -->
+    <!-- Impression banner -->
+    <section class="impression" style="--cover-image: url('assets/cover.jpg');" aria-label="Сила первого впечатления">
+      <div class="container">
+        <div class="impression-content reveal">
+          <h2>Meist</h2>
+          <p class="lead">
+            Быстрый и продуманный сайт — это уважение к времени клиента и лучший способ заявить о себе профессионально.
+          </p>
+          <div class="impression-quote">
+            <span class="quote-icon" aria-hidden="true">“</span>
+            <blockquote>«У вас никогда не будет второго шанса произвести первое впечатление.»</blockquote>
+            <cite>© Уилл Роджерс</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <h2 class="center reveal">Частые вопросы</h2>
+        <h2 class="center faq-title reveal">Часто задаваемые вопросы</h2>
+        <div class="faq-layout">
+          <div class="faq-new reveal">
+            <details>
+              <summary>Что значит "сайт под ключ"?</summary>
+              <div class="answer">
+                <p>Это значит, что мы берем на себя весь процесс — от дизайна и верстки до наполнения, установки,
+                  подключения домена и базовой SEO-настройки. Вам не нужно разбираться в технических деталях — вы
+                  получаете полностью готовый к запуску сайт.</p>
+              </div>
+            </details>
+            <details>
+              <summary>Что нужно от меня на старте?</summary>
+              <div class="answer">
+                <p>На начальном этапе нам понадобится краткое техническое задание: чем Вы занимаетесь, цели сайта,
+                  желаемый стиль, примеры, которые нравятся, и материалы (тексты, логотип, фото — если есть).</p>
+              </div>
+            </details>
+            <details>
+              <summary>Что если у меня нет ни логотипа, ни контента?</summary>
+              <div class="answer">
+                <p>Мы поможем с подбором стоковых изображений, иконок и подготовим базовый текст под Ваш продукт или
+                  услугу. Также можем создать простой текстовый логотип, если нужен минимальный вариант для старта.</p>
+              </div>
+            </details>
+            <details>
+              <summary>Будет ли сайт хорошо работать на разных устройствах?</summary>
+              <div class="answer">
+                <p>Мы используем оптимизированные шаблоны, настраиваем кэширование и базовую оптимизацию, чтобы сайт
+                  загружался быстро как на ПК, так и на телефонах.</p>
+              </div>
+            </details>
+            <details>
+              <summary>Нужно ли дополнительно платить за хостинг и домен?</summary>
+              <div class="answer">
+                <p>Да, стоимость хостинга и домена оплачивается отдельно и не входит в цену разработки сайта. Мы поможем
+                  выбрать подходящий вариант и при необходимости настроим всё за вас. Оплата за хостинг и домен
+                  осуществляется напрямую выбранному провайдеру — обычно это ежегодный или помесячный платёж.</p>
+              </div>
+            </details>
+          </div>
+          <aside class="faq-aside reveal" aria-hidden="true"></aside>
+        </div>
+
+        <div class="faq reveal">
+          <details>
+            <summary>Сколько стоит разработка сайта?</summary>
+            <p>Стоимость зависит от объёма и сложности. После короткого брифа предложу 2–3 варианта с бюджетом и
+              сроками.</p>
+          </details>
+          <details>
+            <summary>Какие сроки?</summary>
+            <p>Лендинг — от 1–2 недель. Корпоративный сайт — от 3–6 недель. Интернет‑магазин — от 6 недель.</p>
+          </details>
+          <details>
+            <summary>Нужны ли тексты и фото?</summary>
+            <p>Да, можно подготовить вместе: помогу с контент‑планом, подскажу стоковые ресурсы и структуру.</p>
+          </details>
+          <details>
+            <summary>Даёте ли поддержку?</summary>
+            <p>Да, доступна абонентская поддержка: обновления, правки, мониторинг и отчёты.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакт -->
+    <section id="contact" class="section">
+      <div class="container contact-2">
+        <div class="contact-info panel reveal">
+          <div class="contact-visual">
+            <img src="assets/contact.jpg" alt="Контакты" loading="lazy" />
+            <div class="contact-badges">
+              <span class="chip">Ответим в течение дня</span>
+              <span class="chip">RU • EN • ET</span>
+            </div>
+          </div>
+          <h3 class="heading-line">Связаться</h3>
+          <ul class="contact-lines">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path d="M12 21c-4-3.6-7-6.7-7-10A7 7 0 1 1 19 11c0 3.3-3 6.4-7 10Z" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="12" cy="11" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              Эстония, Тарту
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path
+                  d="M22 16.92V21a1 1 0 0 1-1.1 1 19.9 19.9 0 0 1-8.69-3.11A19.5 19.5 0 0 1 3.11 11.8 19.9 19.9 0 0 1 0 3.1 1 1 0 0 1 1 2h4.09A1 1 0 0 1 6.09 2.72l1.2 2.8a1 1 0 0 1-.27 1.16L5.88 8.1a16 16 0 0 0 7 7l1.42-1.12a1 1 0 0 1 1.16-.08l2.6 1.53a1 1 0 0 1 .5.87Z"
+                  stroke="currentColor" stroke-width="2" />
+              </svg>
+              <a href="tel:+37253494177">+372 5349 4177</a>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2" />
+                <path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="2" />
+              </svg>
+              <a href="mailto:info@ossence.ee">info@ossence.ee</a>
+            </li>
+          </ul>
+
+          <h3 class="heading-line">Найти</h3>
+          <div class="map-embed">
+            <iframe title="Карта — Тарту" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Tartu&output=embed"></iframe>
+          </div>
+
+          <h3 class="heading-line">Подписаться</h3>
+          <div class="socials big">
+            <a href="https://www.facebook.com/ilyaosw" aria-label="Facebook" title="Facebook" target="_blank"
+              rel="noopener">F</a>
+            <a href="https://www.linkedin.com/in/ilyaosw/" aria-label="LinkedIn" title="LinkedIn" target="_blank"
+              rel="noopener">in</a>
+            <a href="https://www.instagram.com/ilya_osw/" aria-label="Instagram" title="Instagram" target="_blank"
+              rel="noopener">IG</a>
+          </div>
+
+          <div class="contact-widgets">
+            <div class="widget">
+              <h4>Частые вопросы</h4>
+              <ul class="tick-list">
+                <li>Отвечаем в день запроса</li>
+                <li>Поддерживаем RU • EN • ET</li>
+                <li>Работаем по NDA при необходимости</li>
+              </ul>
+            </div>
+            <div class="widget">
+              <h4>Удобно связаться</h4>
+              <div class="chips">
+                <a class="chip" href="mailto:info@ossence.ee">Email</a>
+                <a class="chip" href="tel:+37253494177">Звонок</a>
+                <a class="chip" href="#">Telegram</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form2 panel reveal">
+          <h2 class="contact-head">НАПИШИТЕ НАМ</h2>
+          <p class="lead center reveal">Заполните форму — и мы свяжемся с вами в ближайшее время.</p>
+
+          <!-- Netlify Forms -->
+          <form name="contact" method="POST" data-netlify="true" class="form" id="contactForm">
+            <!-- скрытое поле для Netlify -->
+            <input type="hidden" name="form-name" value="contact">
+
+            <div class="field">
+              <label for="name">Ваше имя</label>
+              <input id="name" name="name" type="text" placeholder="Иван Иванов" required />
+              <span class="error" id="errName"></span>
+            </div>
+
+            <div class="field">
+              <label for="email">Ваша e-почта</label>
+              <input id="email" name="email" type="email" placeholder="you@mail.com" required />
+              <span class="error" id="errEmail"></span>
+            </div>
+
+            <div class="field">
+              <label for="subject">Тема письма</label>
+              <input id="subject" name="subject" type="text" placeholder="Вопрос по разработке" />
+            </div>
+
+            <div class="field">
+              <label for="message">Введите сообщение</label>
+              <textarea id="message" name="message" rows="5" placeholder="Кратко опишите задачу" required></textarea>
+              <span class="error" id="errMessage"></span>
+            </div>
+
+            <button class="btn btn-gradient" type="submit">ОТПРАВИТЬ</button>
+          </form>
+        </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bar">
+      <div class="footer-left">
+        <img class="footer-logo" src="assets/logo-footer.png" alt="Ossence design" />
+      </div>
+      <p class="footer-note">© <span id="year"></span> · <span class="footer-copy">Все права защищены<a class="made-by"
+            href="#" rel="noopener">Ossence design</a></p>
+      <div class="footer-socials" aria-label="Social links">
+        <a href="https://www.instagram.com/ilya_osw/" class="social" aria-label="Instagram" title="Instagram"
+          target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2" />
+            <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2" />
+            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/ilyaosw/" class="social" aria-label="LinkedIn" title="LinkedIn"
+          target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="2" />
+            <rect x="7" y="10" width="2.5" height="7" fill="currentColor" />
+            <circle cx="8.25" cy="7" r="1.25" fill="currentColor" />
+            <path d="M13 10h2c2 0 3 1.2 3 3.2V17h-2.5v-3c0-1-.5-1.6-1.5-1.6H13V17H10.5v-7H13z" fill="currentColor" />
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/ilyaosw" class="social" aria-label="Facebook" title="Facebook" target="_blank"
+          rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="2" />
+            <path d="M13.2 10.2H15V8h-1.8c-1.3 0-2.2.9-2.2 2.2V12H9v2h2v4h2v-4h1.7l.3-2h-2v-1.1c0-.5.2-.7.7-.7Z"
+              fill="currentColor" />
+          </svg>
+        </a>
+      </div>
+      <div class="copy">© <span id="year"></span> Веб‑студия. Все права защищены.</div>
+      <div class="socials">
+        <a href="#" aria-label="Telegram" title="Telegram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M21.5 3.5 2.7 10.8c-.8.3-.7 1.4.1 1.6l4.7 1.5 1.8 5.7c.2.7 1.1.8 1.5.2l2.6-3.3 5 3.7c.6.4 1.4.1 1.6-.6l3.1-15c.2-.8-.5-1.4-1.1-1.1Z"
+              stroke="currentColor" />
+          </svg>
+        </a>
+        <a href="#" aria-label="GitHub" title="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 .8a11.2 11.2 0 0 0-3.5 21.8c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.5-1.1-1.2-1.4-1.2-1.4-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.7 1.2 2.7 1.5.5-.4.8-.7.9-1.4-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 3.7 18 4 18 4c.6 1.7.2 3 .1 3.3.8.9 1.2 1.9 1.2 3.2 0 4.6-2.7 5.6-5.3 5.9.4.3.9 1 .9 2.1v3.1c0 .3.2.7.8.6A11.2 11.2 0 0 0 12 .8Z"
+              stroke="currentColor" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <button class="to-top" id="toTop" aria-label="Вверх">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        <path d="M6 11l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
