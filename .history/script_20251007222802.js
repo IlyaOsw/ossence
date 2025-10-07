@@ -2,10 +2,10 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const formData = {
-    name: e.target.name.value.trim(),
-    email: e.target.email.value.trim(),
-    subject: e.target.subject.value.trim(),
-    message: e.target.message.value.trim(),
+    name: e.target.name.value,
+    email: e.target.email.value,
+    subject: e.target.subject.value,
+    message: e.target.message.value,
   };
 
   try {
@@ -15,14 +15,7 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
       body: JSON.stringify(formData),
     });
 
-    // пробуем корректно обработать пустой ответ
-    let data;
-    try {
-      data = await res.json();
-    } catch {
-      throw new Error("Сервер вернул пустой или некорректный ответ");
-    }
-
+    const data = await res.json();
     if (data.success) {
       alert("✅ Спасибо! Ваше сообщение отправлено.");
       e.target.reset();
