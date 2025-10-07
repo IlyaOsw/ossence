@@ -644,6 +644,36 @@
   </footer>
 
   <script src="script.js" charset="utf-8"></script>
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = {
+        name: e.target.name.value,
+        email: e.target.email.value,
+        subject: e.target.subject.value,
+        message: e.target.message.value,
+      };
+
+      try {
+        const res = await fetch("/.netlify/functions/sendmail", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          alert("✅ Спасибо! Ваше сообщение отправлено.");
+          e.target.reset();
+        } else {
+          alert("❌ Ошибка: " + (data.error || "Не удалось отправить сообщение"));
+        }
+      } catch (err) {
+        alert("⚠️ Сбой подключения: " + err.message);
+      }
+    });
+  </script>
 </body>
 
 </html>
