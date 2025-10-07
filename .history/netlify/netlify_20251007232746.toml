@@ -1,0 +1,11 @@
+[build]
+  publish = "."              # корень проекта (где index.html)
+  command = ""               # если билд-команды нет, оставляем пустым
+
+[functions]
+  directory = "netlify/functions"   # путь до функций
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
