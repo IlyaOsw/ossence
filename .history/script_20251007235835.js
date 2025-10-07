@@ -9,14 +9,7 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
   };
 
   try {
-    const res = await fetch("/.netlify/functions/sendmail", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
-
     const data = await res.json();
-
     if (data.success) {
       alert("✅ Спасибо! Ваше сообщение отправлено.");
       e.target.reset();
@@ -24,7 +17,7 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
       alert("❌ Ошибка: " + (data.error || "Не удалось отправить сообщение"));
     }
   } catch (err) {
-    alert("⚠️ Сервер вернул некорректный ответ: " + err.message);
+    alert("⚠️ Сервер вернул некорректный ответ");
   }
 });
 
