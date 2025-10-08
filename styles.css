@@ -1627,6 +1627,61 @@ details p {
     grid-template-columns: 1fr;
   }
 }
+/* Hint that date opens a picker */
+#preferredDate {
+  cursor: pointer;
+}
+
+/* Subtle theme for native date/time controls */
+#preferredDate,
+#preferredTime {
+  color-scheme: dark; /* hint dark popups where supported */
+}
+
+/* Text fragments inside the date/time input (Chromium/WebKit) */
+#preferredDate::-webkit-datetime-edit,
+#preferredTime::-webkit-datetime-edit {
+  color: var(--text);
+}
+#preferredDate::-webkit-datetime-edit-text,
+#preferredTime::-webkit-datetime-edit-text {
+  color: var(--muted);
+  opacity: 0.9;
+}
+#preferredDate::-webkit-datetime-edit-month-field,
+#preferredDate::-webkit-datetime-edit-day-field,
+#preferredDate::-webkit-datetime-edit-year-field,
+#preferredTime::-webkit-datetime-edit-hour-field,
+#preferredTime::-webkit-datetime-edit-minute-field {
+  padding: 2px 4px;
+  border-radius: 6px;
+}
+#preferredDate::-webkit-datetime-edit-month-field:focus,
+#preferredDate::-webkit-datetime-edit-day-field:focus,
+#preferredDate::-webkit-datetime-edit-year-field:focus,
+#preferredTime::-webkit-datetime-edit-hour-field:focus,
+#preferredTime::-webkit-datetime-edit-minute-field:focus {
+  background: rgba(179, 136, 255, 0.15);
+  outline: none;
+}
+
+/* Calendar/time icon tint */
+#preferredDate::-webkit-calendar-picker-indicator,
+#preferredTime::-webkit-calendar-picker-indicator {
+  opacity: 0.9;
+  border-radius: 8px;
+  padding: 6px;
+  /* purple tint on hover */
+  filter: hue-rotate(290deg) saturate(130%);
+}
+#preferredDate::-webkit-calendar-picker-indicator:hover,
+#preferredTime::-webkit-calendar-picker-indicator:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(179, 136, 255, 0.18),
+    rgba(142, 45, 226, 0.18)
+  );
+}
 .error {
   color: #ff9fb3;
   font-size: 0.85rem;

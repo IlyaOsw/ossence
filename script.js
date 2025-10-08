@@ -30,13 +30,30 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
   }
 });
 
-// Enhance appointment inputs: restrict past dates
+// Enhance appointment inputs: force calendar + restrict past dates
 (() => {
   const dateInput = document.getElementById("preferredDate");
   if (dateInput) {
     try {
-      const today = new Date().toISOString().split("T")[0];
-      dateInput.min = today;
+      // Only future days: start from tomorrow
+      const t = new Date();
+      t.setDate(t.getDate() + 1);
+      dateInput.min = t.toISOString().split("T")[0];
+
+      const openPicker = () => {
+        if (typeof dateInput.showPicker === "function") {
+          try { dateInput.showPicker(); } catch {}
+        }
+      };
+      ["focus", "click"].forEach((ev) => dateInput.addEventListener(ev, openPicker));
+      // Block manual typing; nudge to open picker
+      dateInput.addEventListener("keydown", (e) => {
+        const allowed = ["Tab", "Escape", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"]; // navigation ok
+        if (!allowed.includes(e.key)) {
+          e.preventDefault();
+          openPicker();
+        }
+      });
     } catch {}
   }
 })();
