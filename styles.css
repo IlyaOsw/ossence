@@ -1058,6 +1058,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   padding: 10px 14px;
+  /* Keep content within rounded card */
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(20, 8, 44, 0.16),
     0 1px 0 rgba(255, 255, 255, 0.04) inset;
@@ -1108,30 +1109,13 @@ body {
   transform: rotate(45deg);
 }
 .faq-new .answer {
-  /* No animation: show instantly when details is open (browser handles hide when closed) */
   overflow: visible;
   max-height: none;
   opacity: 1;
   transform: none;
-  transition: none;
-  overflow-anchor: none; /* keep page stable */
 }
 .faq-new details[open] .answer {
   max-height: none;
-  opacity: 1;
-  transform: none;
-}
-/* Disable CSS-based accordion animation when JS handles it to prevent jump */
-.faq-js .faq-new .answer {
-  /* Let JS control animation; keep both states identical in CSS */
-  max-height: none;
-  opacity: 1;
-  transform: none;
-}
-.faq-js .faq-new details[open] .answer {
-  max-height: none;
-  opacity: 1;
-  transform: none;
 }
 .faq-new .answer p {
   color: var(--muted);
@@ -1616,72 +1600,7 @@ details p {
   border-color: #b388ff;
   box-shadow: 0 0 0 3px rgba(179, 136, 255, 0.2);
 }
-.contact-form2 .field-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-@media (max-width: 560px) {
-  .contact-form2 .field-row {
-    grid-template-columns: 1fr;
-  }
-}
-/* Hint that date opens a picker */
-#preferredDate {
-  cursor: pointer;
-}
-
-/* Subtle theme for native date/time controls */
-#preferredDate,
-#preferredTime {
-  color-scheme: dark; /* hint dark popups where supported */
-}
-
-/* Text fragments inside the date/time input (Chromium/WebKit) */
-#preferredDate::-webkit-datetime-edit,
-#preferredTime::-webkit-datetime-edit {
-  color: var(--text);
-}
-#preferredDate::-webkit-datetime-edit-text,
-#preferredTime::-webkit-datetime-edit-text {
-  color: var(--muted);
-  opacity: 0.9;
-}
-#preferredDate::-webkit-datetime-edit-month-field,
-#preferredDate::-webkit-datetime-edit-day-field,
-#preferredDate::-webkit-datetime-edit-year-field,
-#preferredTime::-webkit-datetime-edit-hour-field,
-#preferredTime::-webkit-datetime-edit-minute-field {
-  padding: 2px 4px;
-  border-radius: 6px;
-}
-#preferredDate::-webkit-datetime-edit-month-field:focus,
-#preferredDate::-webkit-datetime-edit-day-field:focus,
-#preferredDate::-webkit-datetime-edit-year-field:focus,
-#preferredTime::-webkit-datetime-edit-hour-field:focus,
-#preferredTime::-webkit-datetime-edit-minute-field:focus {
-  background: rgba(179, 136, 255, 0.15);
-  outline: none;
-}
-
-/* Calendar/time icon tint */
-#preferredDate::-webkit-calendar-picker-indicator,
-#preferredTime::-webkit-calendar-picker-indicator {
-  opacity: 0.9;
-  border-radius: 8px;
-  padding: 6px;
-  /* purple tint on hover */
-  filter: hue-rotate(290deg) saturate(130%);
-}
-#preferredDate::-webkit-calendar-picker-indicator:hover,
-#preferredTime::-webkit-calendar-picker-indicator:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(179, 136, 255, 0.18),
-    rgba(142, 45, 226, 0.18)
-  );
-}
+/* removed booking UI styles */
 .error {
   color: #ff9fb3;
   font-size: 0.85rem;
@@ -3005,3 +2924,15 @@ details[open] {
     margin-top: 20px;
   }
 }
+
+/* Fix FAQ clipping on small screens: allow full content
+   and ensure pleasant wrapping/line height */
+.faq-new details { overflow: hidden; padding-bottom: 12px; }
+.faq-new .answer p {
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+/* Add inner space so last line doesn't clip */
+.faq-new .answer { padding-bottom: 8px; }
+@media (max-width: 560px) { .faq-new .answer { padding-bottom: 10px; } }

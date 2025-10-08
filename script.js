@@ -6,8 +6,6 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
     email: e.target.email.value.trim(),
     subject: e.target.subject.value.trim(),
     message: e.target.message.value.trim(),
-    preferredDate: (e.target.preferredDate?.value || "").trim(),
-    preferredTime: (e.target.preferredTime?.value || "").trim(),
   };
 
   try {
@@ -30,33 +28,7 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
   }
 });
 
-// Enhance appointment inputs: force calendar + restrict past dates
-(() => {
-  const dateInput = document.getElementById("preferredDate");
-  if (dateInput) {
-    try {
-      // Only future days: start from tomorrow
-      const t = new Date();
-      t.setDate(t.getDate() + 1);
-      dateInput.min = t.toISOString().split("T")[0];
-
-      const openPicker = () => {
-        if (typeof dateInput.showPicker === "function") {
-          try { dateInput.showPicker(); } catch {}
-        }
-      };
-      ["focus", "click"].forEach((ev) => dateInput.addEventListener(ev, openPicker));
-      // Block manual typing; nudge to open picker
-      dateInput.addEventListener("keydown", (e) => {
-        const allowed = ["Tab", "Escape", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"]; // navigation ok
-        if (!allowed.includes(e.key)) {
-          e.preventDefault();
-          openPicker();
-        }
-      });
-    } catch {}
-  }
-})();
+// removed booking-related script
 
 // Header scroll shadow
 const header = document.querySelector(".site-header");
@@ -193,14 +165,11 @@ onScroll();
   });
 })();
 
-// FAQ collapses: JS-driven animation for open/close
-// Smooth height + fade/slide without layout jank
+// FAQ collapses: use native <details> sizing (no JS animation)
+// Ensures the panel expands exactly to content height without clipping
 (function faqAnimateJs() {
-  const detailsList = Array.from(
-    document.querySelectorAll("#faq .faq-new details")
-  );
-  if (!detailsList.length) return;
-  document.documentElement.classList.add("faq-js");
+  // Disabled: native details is sufficient and more robust
+  return;
 
   const prefersReduce =
     window.matchMedia &&

@@ -1,0 +1,17 @@
+1129:   opacity: 1;
+1130:   transform: none;
+1131: }
+1132: .faq-js .faq-new details[open] .answer {
+1133:   max-height: none;
+1134:   opacity: 1;
+1135:   transform: none;
+1136: }
+1137: .faq-new .answer p {
+1138:   color: var(--muted);
+1139:   margin: 8px 0 10px; /* чуть больше нижний отступ для стабильности */
+1140:   font-size: 0.95rem;
+1141: }
+1142: /* Убираем схлопывание внешних отступов у первого/последнего элемента,
+1143:    чтобы высота измерялась стабильно и не было «подпрыжки» */
+1144: .faq-new .answer > :first-child {
+1145:   margin-top: 0;
