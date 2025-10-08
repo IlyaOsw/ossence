@@ -1616,6 +1616,17 @@ details p {
   border-color: #b388ff;
   box-shadow: 0 0 0 3px rgba(179, 136, 255, 0.2);
 }
+.contact-form2 .field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+@media (max-width: 560px) {
+  .contact-form2 .field-row {
+    grid-template-columns: 1fr;
+  }
+}
 .error {
   color: #ff9fb3;
   font-size: 0.85rem;

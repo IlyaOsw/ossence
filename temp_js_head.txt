@@ -1,0 +1,40 @@
+document.getElementById("contactForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = {
+    name: e.target.name.value.trim(),
+    email: e.target.email.value.trim(),
+    subject: e.target.subject.value.trim(),
+    message: e.target.message.value.trim(),
+  };
+
+  try {
+    const res = await fetch("/.netlify/functions/sendmail", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      alert("✅ Спасибо! Ваше сообщение отправлено.");
+      e.target.reset();
+    } else {
+      alert("❌ Ошибка: " + (data.error || "Не удалось отправить сообщение"));
+    }
+  } catch (err) {
+    alert("⚠️ Сервер вернул некорректный ответ: " + err.message);
+  }
+});
+
+// Header scroll shadow
+const header = document.querySelector(".site-header");
+const toTop = document.getElementById("toTop");
+const nav = document.getElementById("nav");
+const navToggle = document.getElementById("navToggle");
+
+function onScroll() {
+  const y = window.scrollY || document.documentElement.scrollTop;
+  if (y > 10) header.classList.add("scrolled");
+  else header.classList.remove("scrolled");

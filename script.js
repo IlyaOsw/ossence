@@ -6,6 +6,8 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
     email: e.target.email.value.trim(),
     subject: e.target.subject.value.trim(),
     message: e.target.message.value.trim(),
+    preferredDate: (e.target.preferredDate?.value || "").trim(),
+    preferredTime: (e.target.preferredTime?.value || "").trim(),
   };
 
   try {
@@ -27,6 +29,17 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
     alert("⚠️ Сервер вернул некорректный ответ: " + err.message);
   }
 });
+
+// Enhance appointment inputs: restrict past dates
+(() => {
+  const dateInput = document.getElementById("preferredDate");
+  if (dateInput) {
+    try {
+      const today = new Date().toISOString().split("T")[0];
+      dateInput.min = today;
+    } catch {}
+  }
+})();
 
 // Header scroll shadow
 const header = document.querySelector(".site-header");

@@ -1,0 +1,120 @@
+@media (max-width: 900px) {
+  .footer-bar {
+    padding-top: 16px;
+  }
+}
+
+/* Particles background (site-wide) */
+.particles-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1; /* always behind content */
+  pointer-events: none;
+}
+
+/* Light theme overrides removed */
+.contact-lines a:hover {
+  text-decoration: underline;
+}
+/* Remove embedded map per new design */
+.map-embed {
+  display: none !important;
+}
+/* If map is ever re-enabled, keep sensible defaults
+.map-embed iframe {
+  width: 100%;
+  height: 200px;
+  border: 0;
+  border-radius: 12px;
+  filter: grayscale(20%);
+}
+*/
+.socials.big a {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 18px rgba(20, 8, 44, 0.25);
+}
+.socials.big a:hover {
+  filter: brightness(1.08);
+}
+.contact-form2 .contact-head {
+  margin: 0 0 6px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+/* Tweak form panel look */
+.contact-form2.panel {
+  padding: 22px;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 8, 44, 0.35),
+    rgba(20, 8, 44, 0.25)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.contact-form2 .lead {
+  margin-bottom: 16px;
+  text-align: left; /* align helper text to left */
+}
+.contact-form2 .lead::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2px;
+  margin-top: 8px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(179, 136, 255, 0.9),
+    rgba(142, 45, 226, 0.8)
+  );
+  opacity: 0.85;
+}
+.contact-form2 .field input,
+.contact-form2 .field textarea {
+  background: rgba(8, 4, 18, 0.6);
+}
+@media (max-width: 920px) {
+  .contact-2 {
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 921px) {
+  .contact-2 > .contact-form2 {
+    order: -1;
+  }
+}
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 18px;
+  display: grid;
+  gap: 8px;
+}
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+}
+.contact-form {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+/* Refine contact info panel styling */
+.contact-info.panel {
+  position: relative;
+  padding: 22px;
+  background: linear-gradient(

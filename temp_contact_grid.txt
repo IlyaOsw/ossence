@@ -1,0 +1,80 @@
+    url("assets/contact.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (min-width: 1024px) {
+  #contact {
+    background-attachment: fixed;
+  }
+}
+
+/* Make panels sit nicely over image */
+#contact .panel {
+  background: rgba(15, 8, 32, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+}
+/* Hide unused "Find us" heading inside contact panel */
+#contact .contact-info .heading-line:nth-of-type(2) {
+  display: none !important;
+}
+/* Equal height columns */
+.contact-2 > .panel {
+  height: 100%;
+}
+/* Contact visual */
+.contact-visual {
+  display: none; /* Using section-wide background instead */
+}
+/* Badges no longer shown since visual is hidden */
+
+/* Contact actions (email/phone) */
+.contact-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 12px 0 10px;
+}
+@media (max-width: 560px) {
+  .contact-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Working hours */
+.hours {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 16px;
+  color: var(--muted);
+  display: grid;
+  gap: 4px;
+}
+#contact .grid-2 {
+  display: none;
+}
+.panel {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.03)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 24px rgba(20, 8, 44, 0.28);
+}
+.heading-line {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+}
+.heading-line::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2px;
+  margin-top: 8px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
