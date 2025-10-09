@@ -1387,12 +1387,6 @@ details p {
   text-align: left; /* align helper text to left */
 }
 
-/* Force uppercase on submit button across all languages */
-.contact-form2 button[type="submit"],
-.contact-form2 .btn[type="submit"] {
-  text-transform: uppercase;
-}
-
 textarea {
   resize: none;
 }

@@ -561,6 +561,8 @@ yearEl.textContent = new Date().getFullYear();
 
 form?.addEventListener("submit", (e) => {
   e.preventDefault();
+  // Disabled legacy demo handler to avoid altering submit button text
+  return;
   const name = form.name.value.trim();
   const email = form.email.value.trim();
   const message = form.message.value.trim();

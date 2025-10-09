@@ -1346,12 +1346,8 @@ details p {
 .contact-lines a:hover {
   text-decoration: underline;
 }
-/* Remove embedded map per new design */
-.map-embed {
-  display: none !important;
-}
 
-*/ .socials.big a {
+.socials.big a {
   width: 42px;
   height: 42px;
   border-radius: 10px;
@@ -1386,17 +1382,6 @@ details p {
   margin-bottom: 16px;
   text-align: left; /* align helper text to left */
 }
-
-/* Force uppercase on submit button across all languages */
-.contact-form2 button[type="submit"],
-.contact-form2 .btn[type="submit"] {
-  text-transform: uppercase;
-}
-
-textarea {
-  resize: none;
-}
-
 .contact-form2 .lead::after {
   content: "";
   display: block;
@@ -1456,12 +1441,12 @@ textarea {
     rgba(255, 255, 255, 0.03)
   );
   border-left: 3px solid rgba(179, 136, 255, 0.45);
-  /* Distribute blocks top?bottom without extra bottom gap */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 14px;
   min-height: 100%;
+  margin-top: 50px;
 }
 .contact-info.panel::after {
   content: "";
