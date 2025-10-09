@@ -1615,6 +1615,22 @@ textarea {
   font-size: 0.85rem;
   min-height: 1rem;
 }
+.field.invalid input,
+.field.invalid textarea {
+  border-color: #ff6b81;
+  box-shadow: 0 0 0 3px rgba(255, 107, 129, 0.18);
+}
+.form-status {
+  margin: 2px 0 10px;
+  font-size: 0.95rem;
+  min-height: 1rem;
+}
+.form-status.ok {
+  color: #7cffc4;
+}
+.form-status.error {
+  color: #ff9fb3;
+}
 .form-note {
   color: var(--muted);
   font-size: 0.85rem;

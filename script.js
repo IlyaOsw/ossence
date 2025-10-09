@@ -1,21 +1,223 @@
-document.getElementById("contactForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+// Contact form: validation, send, feedback
+(function initContactForm() {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
 
-  const formData = {
-    name: e.target.name.value.trim(),
-    email: e.target.email.value.trim(),
-    subject: e.target.subject.value.trim(),
-    message: e.target.message.value.trim(),
+  const nameEl = form.querySelector("#name");
+  const emailEl = form.querySelector("#email");
+  const subjectEl = form.querySelector("#subject");
+  const messageEl = form.querySelector("#message");
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  const errName = document.getElementById("errName");
+  const errEmail = document.getElementById("errEmail");
+  const errMessage = document.getElementById("errMessage");
+
+  // Localized UI messages
+  const MESSAGES = {
+    ru: {
+      sending: "Отправляем...",
+      success: "Письмо успешно отправлено.",
+      fail: "Не удалось отправить. Попробуйте позже.",
+      neterr: "Не удалось отправить. Проверьте подключение.",
+      v_name: "Введите имя",
+      v_email: "Укажите корректный email",
+      v_message: "Введите сообщение",
+    },
+    en: {
+      sending: "Sending...",
+      success: "Message sent successfully.",
+      fail: "Could not send. Please try later.",
+      neterr: "Failed to send. Check your connection.",
+      v_name: "Enter your name",
+      v_email: "Enter a valid email",
+      v_message: "Enter a message",
+    },
+    et: {
+      sending: "Saatmine...",
+      success: "Sõnum on edukalt saadetud.",
+      fail: "Saatmine ebaõnnestus. Proovi hiljem uuesti.",
+      neterr: "Saatmine ebaõnnestus. Kontrolli võrku.",
+      v_name: "Sisesta nimi",
+      v_email: "Sisesta korrektne e‑post",
+      v_message: "Sisesta sõnum",
+    },
   };
+  const currentLang = () =>
+    document.documentElement.getAttribute("lang") ||
+    localStorage.getItem("lang") ||
+    "ru";
+  const t = (key) => (MESSAGES[currentLang()] || MESSAGES.ru)[key] || key;
 
-  try {
-    const res = await fetch("/.netlify/functions/sendmail", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+  // Ensure status node exists and is placed above the submit button
+  let statusEl = document.getElementById("formStatus");
+  if (!statusEl && submitBtn && submitBtn.parentNode) {
+    statusEl = document.createElement("div");
+    statusEl.id = "formStatus";
+    statusEl.className = "form-status";
+    statusEl.setAttribute("role", "status");
+    statusEl.setAttribute("aria-live", "polite");
+    submitBtn.parentNode.insertBefore(statusEl, submitBtn);
+  }
+
+  function setInvalid(input, errNode, msg) {
+    input?.closest?.(".field")?.classList.add("invalid");
+    if (errNode) errNode.textContent = msg || "";
+  }
+  function clearInvalid(input, errNode) {
+    input?.closest?.(".field")?.classList.remove("invalid");
+    if (errNode) errNode.textContent = "";
+  }
+  function validate() {
+    let ok = true;
+    if (statusEl) {
+      statusEl.textContent = "";
+      statusEl.classList.remove("ok", "error");
+    }
+
+    const name = (nameEl?.value || "").trim();
+    if (name.length < 2) {
+      setInvalid(nameEl, errName, "Введите имя");
+      ok = false;
+    } else clearInvalid(nameEl, errName);
+
+    const email = (emailEl?.value || "").trim();
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(email)) {
+      setInvalid(emailEl, errEmail, "Укажите корректный email");
+      ok = false;
+    } else clearInvalid(emailEl, errEmail);
+
+    const message = (messageEl?.value || "").trim();
+    if (message.length < 5) {
+      setInvalid(messageEl, errMessage, "Введите сообщение");
+      ok = false;
+    } else clearInvalid(messageEl, errMessage);
+
+    return ok;
+  }
+
+  // Localized reimplementation of validation
+  function validateForm() {
+    let ok = true;
+    if (statusEl) {
+      statusEl.textContent = "";
+      statusEl.classList.remove("ok", "error");
+    }
+
+    const name = (nameEl?.value || "").trim();
+    if (name.length < 2) {
+      setInvalid(nameEl, errName, t("v_name"));
+      ok = false;
+    } else clearInvalid(nameEl, errName);
+
+    const email = (emailEl?.value || "").trim();
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(email)) {
+      setInvalid(emailEl, errEmail, t("v_email"));
+      ok = false;
+    } else clearInvalid(emailEl, errEmail);
+
+    const message = (messageEl?.value || "").trim();
+    if (message.length < 5) {
+      setInvalid(messageEl, errMessage, t("v_message"));
+      ok = false;
+    } else clearInvalid(messageEl, errMessage);
+
+    return ok;
+  }
+
+  // Clear error on input
+  [
+    [nameEl, errName],
+    [emailEl, errEmail],
+    [messageEl, errMessage],
+  ].forEach(([el, err]) => {
+    el?.addEventListener("input", () => clearInvalid(el, err));
+    el?.addEventListener("blur", () => {
+      // Revalidate single field on blur
+      validateForm();
     });
-  } catch (err) {}
-});
+  });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!validateForm()) {
+      const firstInvalid = form.querySelector(
+        ".field.invalid input, .field.invalid textarea"
+      );
+      firstInvalid?.focus();
+      return;
+    }
+
+    const payload = {
+      name: nameEl?.value.trim() || "",
+      email: emailEl?.value.trim() || "",
+      subject: subjectEl?.value.trim() || "",
+      message: messageEl?.value.trim() || "",
+    };
+
+    const prevText = submitBtn?.textContent;
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Отправляем...";
+    }
+    submitBtn && (submitBtn.textContent = t("sending"));
+    if (statusEl) {
+      statusEl.textContent = "";
+      statusEl.classList.remove("ok", "error");
+    }
+
+    try {
+      const res = await fetch("/.netlify/functions/sendmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      let data = null;
+      try {
+        data = await res.json();
+      } catch {}
+
+      if (res.ok && data?.success) {
+        form.reset();
+        clearInvalid(nameEl, errName);
+        clearInvalid(emailEl, errEmail);
+        clearInvalid(messageEl, errMessage);
+        if (statusEl) {
+          statusEl.textContent = "Письмо успешно отправлено.";
+          statusEl.textContent = t("success");
+          statusEl.classList.remove("error");
+          statusEl.classList.add("ok");
+        }
+      } else {
+        if (statusEl) {
+          statusEl.textContent =
+            data?.error || "Не удалось отправить. Попробуйте позже.";
+          statusEl.textContent = data?.error || t("fail");
+          statusEl.classList.remove("ok");
+          statusEl.classList.add("error");
+        }
+      }
+    } catch (err) {
+      if (statusEl) {
+        statusEl.textContent = "Не удалось отправить. Проверьте подключение.";
+        statusEl.textContent = t("neterr");
+        statusEl.classList.remove("ok");
+        statusEl.classList.add("error");
+      }
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = prevText || submitBtn.textContent;
+      }
+      // Move focus to the status for screen readers
+      try {
+        statusEl?.focus?.();
+      } catch {}
+    }
+  });
+})();
 
 // removed booking-related script
 
