@@ -11,6 +11,7 @@ exports.handler = async (event, context) => {
     }
 
     const { name, email, subject, message } = JSON.parse(event.body);
+    console.log("Данные из формы:", { name, email, subject, message });
 
     let transporter = nodemailer.createTransport({
       host: "smtp.zoho.eu",
